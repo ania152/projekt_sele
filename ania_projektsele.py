@@ -16,7 +16,7 @@ pkd = "5229C"
 pkd_nazwa = "DZIAŁALNOŚĆ POZOSTAŁYCH AGENCJI TRANSPORTOWYCH"
 city = "Katowice"
 budynek = "12"
-budynek = "1"
+lokal = "1"
 postcode = "40-006"
 telefon = "0327573333"
 fax = "0327573333"
@@ -50,8 +50,8 @@ class LsiRegistration(unittest.TestCase):
         driver.find_element_by_id("button_lupa").click()
         sleep(5)
         select_city = driver.find_element_by_id("search.nazwa").send_keys(city)
-        driver.FindElement(By.XPath("//div/button[@type='submit']")
-        driver.FindElement(By.XPath("//div/button[@title="wybierz: Katowice [pow. Katowice / gmi. Katowice]"])
+        driver.find_element_by_xpath("//div/button[@type='submit']")
+        driver.find_element_by_xpath("//div/button[@title='wybierz: Katowice [pow. Katowice / gmi. Katowice]']")
         driver.find_element_by_id("adr_budynek").send_keys(budynek)
         driver.find_element_by_id("adr_lokal").send_keys(lokal)
         driver.find_element_by_id("adr_kod").send_keys(postcode)
@@ -65,7 +65,7 @@ class LsiRegistration(unittest.TestCase):
         forma_wlasnosci_select = Select(driver.find_element_by_id("forma_wlasnosci_id"))
         forma_wlasnosci_select.select_by_visible_text("Pozostałe krajowe jednostki prywatne")
         driver.find_element_by_id("osw_reprezentacja_podm").click()
-        driver.FindElement(By.XPath("//button[contains(text(),'Zapisz i wyjdź')]”)
+        driver.find_element_by_xpath("//button[contains(text(),'Zapisz i wyjdź')]")
         errors = driver.find_elements_by_xpath('//div[@class=" alert alert-dismissible msg-animate ng-scope alert-danger"]/ol/li')
         assert len(errors) == 1
         error_text = errors[0].get_attribute('innerText')

@@ -27,7 +27,7 @@ class LsiRegistration(unittest.TestCase):
 
     def setUp(self):
         self.driver = webdriver.Chrome()
-        self.driver.get(' https://lsi-dev.slaskie.pl/#/login')
+        self.driver.get('https://lsi-dev.slaskie.pl/#/login')
         self.driver.maximize_window()
         # Czekaj max 5 sekund na elementy
         self.driver.implicitly_wait(5)
